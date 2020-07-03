@@ -1,0 +1,314 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: sans-serif;
+}
+
+/*Snow*/
+#snow_full{
+	width: 100%;
+	min-height: 100vh;
+	z-index: 0;
+	position: absolute;
+}
+
+/*Typed*/
+.info{
+	width: 470px;
+	height: 200px;
+	padding: 30px 35px;
+	/*background: rgba(0,0,0,0.8);*/
+	box-sizing: border-box;
+	/*box-shadow: 0 15px 25px rgba(0,0,0,.5);*/
+	border-radius: 10px;
+	text-align: center;
+	color: white;
+	z-index: 1;
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	flex-wrap: wrap;
+}
+.info h2{
+	font-size: 4em;
+}
+
+.info h2>span{
+	color: #03e9f4;
+}
+
+
+/*Registrations*/
+.box{
+	width: 450px;
+	padding: 27px 30px;
+	background: rgba(0,0,0,0.8);
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0,0,0,.5);
+	border-radius: 10px;
+	color: white;
+	z-index: 1;
+}
+.box h2{
+	margin: 0 0 15px;
+	padding: 0;
+	color: #fff;
+	text-align: center;
+	font-weight: 500;
+	font-size: 36px;
+	letter-spacing: 1px;
+}
+
+.box .inputBox{
+	position: relative;
+}
+
+/*input*/
+.box .inputBox input{
+	width: 100%;
+	padding: 10px 0;
+	font-size: 17px;
+	color: #fff;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1.3px solid #fff;
+	outline: none;
+	background: transparent;
+}
+
+/*input hover*/
+.box .inputBox input:hover{
+	border: none;
+	border-bottom: 1.3px solid #03e9f4;
+	outline: none;
+}
+
+.box .inputBox input::placeholder{
+	color: #A3A3A3;
+}
+
+
+/*login*/
+.box .u_log{
+	position: relative;
+	display: inline-block;
+	padding: 18px 20px;
+	margin-left: 30%;
+	margin-top: 5px;
+	color: #03e9f4;
+	cursor: pointer;
+	font-size: 17px; 
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	transition: 0.5s;
+	letter-spacing: 1px;
+	/*filter: hue-rotate(290deg);*/
+	-webkit-box-reflect: below 3px linear-gradient(transparent,#0005);
+	-moz-box-reflect: below 3px linear-gradient(transparent,#0005);
+	-ms-box-reflect: below 3px linear-gradient(transparent,#0005);
+}
+.u_log:hover{
+	background: #03e9f4;
+	color: #FFFFFF;
+	box-shadow: 0 0 5px #03e9f4,
+				0 0 25px #03e9f4,
+				0 0 50px #03e9f4;
+}
+.u_log span{
+	position: absolute;
+	display: block;
+}
+.u_log span:nth-child(1){
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg,transparent,#03e9f4);
+	animation: animate1 1s linear infinite;
+}
+@keyframes animate1{
+	0%{
+		left: -100%;
+	}
+	50%,100%{
+		left: 100%;
+	}
+} 
+
+.u_log span:nth-child(2){
+	top: -100%;
+	right: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(180deg,transparent,#03e9f4);
+	animation: animate2 1s linear infinite;
+	animation-delay: 0.25s;
+}
+@keyframes animate2{
+	0%{
+		top: -100%;
+	}
+	50%,100%{
+		top: 100%;
+	}
+}
+
+.u_log span:nth-child(3){
+	bottom: 0;
+	right: -100%;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(270deg,transparent,#03e9f4);
+	animation: animate3 1s linear infinite;
+	animation-delay: 0.5s;
+}
+@keyframes animate3{
+	0%{
+		right: -100%;
+	}
+	50%,100%{
+		right: 100%;
+	}
+}
+
+.u_log span:nth-child(4){
+	bottom: -100%;
+	left: 0;
+	width: 2px; 
+	height: 100%;
+	background: linear-gradient(360deg,transparent,#03e9f4);
+	animation: animate4 1s linear infinite;
+	animation-delay: 0.75s;
+}
+@keyframes animate4{
+	0%{
+		bottom: -100%;
+	}
+	50%,100%{
+		bottom: 100%;
+	}
+}
+
+.save{
+	filter: hue-rotate(290deg);
+}
+
+
+/*Date*/
+/*::-webkit-inner-spin-button { 
+	display: none; 
+}
+::-webkit-calendar-picker-indicator {
+	background: #444444; 
+}*/
+
+/*button .save*/
+.box .save{
+	position: relative;
+	display: inline-block;
+	padding: 18px 20px;
+	margin-left: 10px;
+	color: #03e9f4;
+	cursor: pointer;
+	font-size: 17px; 
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	transition: 0.5s;
+	letter-spacing: 1px;
+	/*filter: hue-rotate(290deg);*/
+	-webkit-box-reflect: below 3px linear-gradient(transparent,#0005);
+	-moz-box-reflect: below 3px linear-gradient(transparent,#0005);
+	-ms-box-reflect: below 3px linear-gradient(transparent,#0005);
+}
+.save:hover{
+	background: #03e9f4;
+	color: #FFFFFF;
+	box-shadow: 0 0 5px #03e9f4,
+				0 0 25px #03e9f4,
+				0 0 50px #03e9f4;
+}
+.save span{
+	position: absolute;
+	display: block;
+}
+.save span:nth-child(1){
+	top: 0;
+	right: -100%;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg,transparent,#03e9f4);
+	animation: animate5 1s linear infinite;
+}
+@keyframes animate5{
+	0%{
+		right: -100%;
+	}
+	50%,100%{
+		right: 100%;
+	}
+} 
+
+.save span:nth-child(2){
+	top: -100%;
+	left: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(180deg,transparent,#03e9f4);
+	animation: animate6 1s linear infinite;
+	animation-delay: 0.25s;
+}
+@keyframes animate6{
+	0%{
+		top: -100%;
+	}
+	50%,100%{
+		top: 100%;
+	}
+}
+
+.save span:nth-child(3){
+	bottom: 0;
+	left: -100%;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(270deg,transparent,#03e9f4);
+	animation: animate7 1s linear infinite;
+	animation-delay: 0.5s;
+}
+@keyframes animate7{
+	0%{
+		left: -100%;
+	}
+	50%,100%{
+		left: 100%;
+	}
+}
+
+.save span:nth-child(4){
+	bottom: -100%;
+	right: 0;
+	width: 2px; 
+	height: 100%;
+	background: linear-gradient(360deg,transparent,#03e9f4);
+	animation: animate8 1s linear infinite;
+	animation-delay: 0.75s;
+}
+@keyframes animate8{
+	0%{
+		bottom: -100%;
+	}
+	50%,100%{
+		bottom: 100%;
+	}
+}
+
+
+/*input #name #surname*/
+#name,#surname {
+	width: 100%;
+}
