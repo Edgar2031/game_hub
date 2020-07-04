@@ -211,70 +211,6 @@
 
 	</head>
 	<body>
-<!-- 		<section class="hollow">
-		    <header>
-		        <h1>ОНЛАЙН ЧАТ</h1>
-		    </header>
-		    <div id="chatbro" class="is-loading is-loaded is-loaded-finish">
-		        <div class="chatbro_chat chatbro_unmovable_chat chatbro_opacity" style="height: 238px; width: 290px; top: 0px; left: 0px; display: block;">
-		            <div class="chatbro_header chatbro_maximized_header" style="background: rgb(31, 35, 38); color: rgb(130, 184, 69);">
-		                <table class="chatbro_header_table">
-		                    <tbody>
-		                        <tr>
-		                            <td></td>
-		                            <td class="chatbro_header_caption_td">
-		                                <div class="chatbro_caption chatbro_maximized_caption">
-		                                    <div class="chatbro_title chatbro_maximized_title" style="color: rgb(130, 184, 69);">
-		                                        <div class="chatbro_chat_name" style="width: 0px;"></div>
-		                                        <div class="chatbro_notifications"><span class="chatbro_bell_ico"></span></div>
-		                                    </div>
-		                                </div>
-		                            </td>
-		                            <td>
-		                                <button class="chatbro_header_button chatbro_minimize_button" title="Свернуть" style="color: rgb(130, 184, 69); background: rgb(31, 35, 38);"></button>
-		                            </td>
-		                        </tr>
-		                    </tbody>
-		                </table>
-		            </div>
-		            <div class="chatbro_body" style="border-color: rgb(31, 35, 38);">
-		                <div class="chatbro_system_messages_block" style="border-color: rgb(31, 35, 38);">
-		                    <div class="chatbro_system_messages_wrapper" style="max-height: 231px; height: auto;">
-		                        <div class="chatbro_system_messages"></div>
-		                    </div>
-		                </div>
-		                <div class="chatbro_messages_wrapper" style="height: 442px; background: rgb(47, 53, 57);">
-		                    <div class="chatbro_messages_block" style="width: 303px; background: rgb(31, 35, 38);">
-		                        <table class="chatbro_messages" style="display: table-cell;">
-		                            <tbody class="chat_output">
-
-
-		                            </tbody>
-		                        </table>
-		                    </div>
-		                </div>
-		                <div class="chatbro_send" style="background: rgb(29, 33, 36);">
-		                    <div class="chatbro_send_input_preview" style="border-color: rgb(37, 42, 46); background: rgb(29, 33, 36);"></div>
-		                    <div class="chatbro_send_input_block" style="border-color: rgb(37, 42, 46);">
-		                        <div class="chatbro_send_input_wrapper">
-		                            <textarea class="chat_input" class="chatbro_file_select_input"></textarea>
-		                            <div class="chatbro_send_button" style="background-color: rgb(29, 33, 36); color: rgb(238, 238, 238);">
-		                            	
-		                            </div>
-			                        <div class="chatbro_open_smiles_button" style="background-color: rgb(29, 33, 36); color: rgb(238, 238, 238);">
-
-			                        </div>
-			                        <div class="chatbro_smiles_menu" style="background-color: rgb(34, 39, 42); display: none;">
-
-			                        </div>
-		                        </div>
-		                    </div>
-		                </div>
-		                <div class="chatbro_bottom_border" style="border-color: rgb(31, 35, 38);"></div>
-		            </div>
-		        </div>
-		    </div>
-		</section> -->
 
 		<div class="chat-box">
             <div class="header">
@@ -287,7 +223,9 @@
 			    </span>
             </div>
             <div class="chat-room">
-                
+
+                <!-- chat -->
+
                	<!-- <div class="message message-left">
 	                <div class="avatar-wrapper avatar-small">
 	                    <img src="https://znews-photo.zadn.vn/w660/Uploaded/pnbcuhbatgunb/2020_03_23/i13863960814_1.jpg" alt="avatar" />
@@ -296,6 +234,7 @@
 	                    what is going on?
 	                </div>
             	</div> -->
+
             </div>
             <div class="type-area">
                 <div class="input-wrapper">
@@ -356,22 +295,28 @@
 				}
 				websocket_server.onmessage = function(e) {
 					var json = JSON.parse(e.data);
-					let user_id = 0;
-						user_id = json.msg.split('=');
-						user_id = user_id[2][0];
-						user_id = Number(user_id)
-					let text_l = json.msg.split('>');
-						text_l = text_l[1].split('<');
-						text_l = text_l[0];
-						$.ajax({
-						    url: 'http://localhost/game_hub/server.php',
-						    type: 'post',
-						    data: {online_chat_new: 'online_chat_new',user_id,text_l},
-						    success: function(r){
-								r = JSON.parse(r);
-								switch(json.type) {
-									case 'chat':								
-										r.forEach(function(element, index){
+
+					// ajax chati tvyalnere baza uxarkelu hamar 
+
+
+					// let user_id = 0;
+					// 	user_id = json.msg.split('=');
+					// 	user_id = user_id[2][0];
+					// 	user_id = Number(user_id)
+					// let text_l = json.msg.split('>');
+					// 	text_l = text_l[1].split('<');
+					// 	text_l = text_l[0];
+						// $.ajax({
+						//     url: 'http://localhost/game_hub/server.php',
+						//     type: 'post',
+						//     data: {online_chat_new: 'online_chat_new',user_id,text_l},
+						//     success: function(r){
+						// 		r = JSON.parse(r);
+						// 		switch(json.type) {
+						// 			case 'chat':								
+						// 				r.forEach(function(element, index){
+
+
 											$('.chat-room').append(`
 												<div class="message message-right">
 								                    <div class="avatar-wrapper avatar-small">
@@ -385,11 +330,14 @@
 
 
 						                    `);
-										})
-									break;
-						    	}
-						    }
-						})
+
+
+
+						// 				})
+						// 			break;
+						//     	}
+						//     }
+						// })
 				}
 				// Events
 				$('#inputText').on('keyup',function(e){
