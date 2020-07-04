@@ -19,9 +19,199 @@
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="profil css/profil.css">
 
+
+		<style type="text/css">
+			.d-none {
+			    display: none !important;
+			}
+
+			.others-show {
+			    top: -55px !important;
+			    z-index: 10 !important;
+			}
+
+			.emoji-show {
+			    display: flex !important;
+			    flex-wrap: wrap;
+			    align-content: flex-start;
+			    width: 150px !important;
+			    height: 100px !important;
+			    padding: 10px;
+			    top: -135px !important;
+			    right: 10px !important;
+			    background-color: #fff;
+			    box-shadow: 0 0 25px -5px lightgray;
+			    border-radius: 5px 5px 0 5px;
+			}
+
+			button {
+			    border: 0;
+			    outline: none;
+			}
+
+			img {
+			    width: 100%;
+			    object-fit: cover;
+			}
+
+			.avatar-wrapper {
+			    border-radius: 50%;
+			    overflow: hidden;
+			}
+
+			.chat-box {
+			    width: 350px;
+			    margin: auto;
+			}
+			.chat-box .header {
+			    display: flex;
+			    align-items: center;
+			    background-color: #fff;
+			    border-radius: 20px 20px 0 0;
+			    padding: 15px;
+			}
+			.chat-box .header .avatar-big {
+			    width: 35px;
+			    height: 35px;
+			}
+			.chat-box .header .name {
+			    margin-left: 20px;
+			    font-size: 20px;
+			    font-weight: 500;
+			}
+			.chat-box .header .options {
+			    font-size: 20px;
+			    color: lightgrey;
+			    margin-left: auto;
+			    cursor: pointer;
+			}
+			.chat-box .chat-room {
+			    min-height: 300px;
+			    background-color: #f7f9fb;
+			    padding: 15px;
+			}
+			.chat-box .chat-room .avatar-small {
+			    width: 25px;
+			    height: 25px;
+			}
+			.chat-box .chat-room .message {
+			    margin-bottom: 15px;
+			    display: flex;
+			    flex-direction: column;
+			}
+			.chat-box .chat-room .message-left {
+			    align-items: flex-start;
+			}
+			.chat-box .chat-room .message-left .bubble {
+			    border-radius: 0 5px 5px 5px;
+			}
+			.chat-box .chat-room .message-right {
+			    align-items: flex-end;
+			}
+			.chat-box .chat-room .message-right .bubble {
+			    border-radius: 5px 0 5px 5px;
+			}
+			.chat-box .chat-room .bubble {
+			    padding: 10px;
+			    font-size: 14px;
+			    margin-top: 5px;
+			    display: inline-block;
+			}
+			.chat-box .chat-room .bubble-light {
+			    background-color: #fbcffc;
+			}
+			.chat-box .chat-room .bubble-dark {
+			    color: #fff;
+			    background-color: #be79df;
+			}
+			.chat-box .type-area {
+			    display: flex;
+			    height: 65px;
+			    background-color: #fff;
+			    border-radius: 0 0 20px 20px;
+			}
+			.chat-box .type-area .input-wrapper {
+			    overflow: hidden;
+			    border-radius: 0 0 0 20px;
+			}
+			.chat-box .type-area .input-wrapper input {
+			    outline: none;
+			    border: none;
+			    padding-left: 20px;
+			    height: 100%;
+			    width: 220px;
+			    font-size: 14px;
+			}
+			.chat-box .type-area .button-add {
+			    display: flex;
+			    align-items: center;
+			    position: relative;
+			}
+			.chat-box .type-area .button-add i {
+			    font-size: 30px;
+			    color: lightgrey;
+			    cursor: pointer;
+			}
+			.chat-box .type-area .button-add i:hover {
+			    color: #be79df;
+			}
+			.chat-box .type-area .button-add .others {
+			    display: flex;
+			    padding: 10px 15px;
+			    background-color: #fff;
+			    position: absolute;
+			    top: 5px;
+			    z-index: -1;
+			    right: -52px;
+			    border-radius: 999px;
+			    box-shadow: 0 0 25px -5px lightgray;
+			    transition: 0.3s all ease-out;
+			}
+			.chat-box .type-area .button-add .others span i {
+			    font-size: 20px;
+			    color: #be79df;
+			}
+			.chat-box .type-area .button-add .others span.image-button {
+			    margin: 0 25px;
+			}
+			.chat-box .type-area .button-add .others .emoji-button {
+			    position: relative;
+			}
+			.chat-box .type-area .button-add .others .emoji-button .emoji-box {
+			    display: none;
+			    position: absolute;
+			    width: 0px;
+			    height: 0px;
+			    top: 0px;
+			    right: 0px;
+			    transition: 0.3s all ease-out;
+			}
+			.chat-box .type-area .button-add .others .emoji-button .emoji-box span {
+			    user-select: none;
+			    cursor: pointer;
+			    margin-right: 5px;
+			    margin-bottom: 5px;
+			    width: 20px;
+			    height: 20px;
+			}
+			.chat-box .type-area .button-send {
+			    background-color: #fff;
+			    margin-left: auto;
+			    width: 65px;
+			    color: #be79df;
+			    font-weight: bold;
+			    border-left: 2px solid #f7f9fb;
+			    border-radius: 0 0 20px 0;
+			}
+			.chat-box .type-area .button-send:hover {
+			    background-color: #be79df;
+			    color: #fff;
+			}
+		</style>
+
 	</head>
 	<body>
-		<section class="hollow">
+<!-- 		<section class="hollow">
 		    <header>
 		        <h1>ОНЛАЙН ЧАТ</h1>
 		    </header>
@@ -57,13 +247,7 @@
 		                    <div class="chatbro_messages_block" style="width: 303px; background: rgb(31, 35, 38);">
 		                        <table class="chatbro_messages" style="display: table-cell;">
 		                            <tbody class="chat_output">
-		                               <!--  <tr id="chatbroMessageRadial1581526878758" style="display: table-row;" class="chatbro_message chatbro_message_radial">
-		                                    <td colspan="4">
-		                                        <div style="padding: 8px 2px;">
-		                                            <div style="border-color: #383f44; border-left-color: #515b63; " class="chatbro_messages_load_progress_radial"></div>
-		                                        </div>
-		                                    </td>
-		                                </tr> -->
+
 
 		                            </tbody>
 		                        </table>
@@ -90,7 +274,64 @@
 		            </div>
 		        </div>
 		    </div>
-		</section>
+		</section> -->
+
+		<div class="chat-box">
+            <div class="header">
+                <div class="avatar-wrapper avatar-big">
+                    <img src="https://znews-photo.zadn.vn/w660/Uploaded/pnbcuhbatgunb/2020_03_23/i13863960814_1.jpg" alt="avatar" />
+                </div>
+                <span class="name">Crush</span>
+                <span class="options">
+			    	<i class="fas fa-ellipsis-h"></i>
+			    </span>
+            </div>
+            <div class="chat-room">
+                
+               	<!-- <div class="message message-left">
+	                <div class="avatar-wrapper avatar-small">
+	                    <img src="https://znews-photo.zadn.vn/w660/Uploaded/pnbcuhbatgunb/2020_03_23/i13863960814_1.jpg" alt="avatar" />
+	                </div>
+	                <div class="bubble bubble-light">
+	                    what is going on?
+	                </div>
+            	</div> -->
+            </div>
+            <div class="type-area">
+                <div class="input-wrapper">
+                    <input type="text" id="inputText" placeholder="Type messages here..." />
+                </div>
+                <span class="button-add">
+					<i class="fas fa-plus-circle"></i>
+					<div class="others">
+				        <span class="emoji-button">
+							<i class="far fa-laugh"></i>
+							<div class="emoji-box">
+								<span>&#x1f604;</span>
+								<span>😀</span>
+								<span>😂</span>
+								<span>😭</span>
+								<span>😍</span>
+								<span>🤮</span>
+								<span>🤑</span>
+								<span>😖</span>
+								<span>😷</span>
+							</div>
+				        </span>
+				        <span class="image-button">
+				        	<i class="far fa-image"></i>
+				        </span>
+				        <span>
+				        	<i class="fas fa-paperclip"></i>
+				        </span>
+				    </div>
+			    </span>
+                <button class="button-send">Send</button>
+            </div>
+
+        </div>
+
+
 			
 	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -131,35 +372,19 @@
 								switch(json.type) {
 									case 'chat':								
 										r.forEach(function(element, index){
-											$('.chat_output').append(`<tr class="chatbro_message" style="color: rgb(221, 221, 221);"> 
-						                    	<td class="chatbro_message_empty_block"></td> 
-						                    	<td class="chatbro_message_avatar_block"> 
-						                    		<a style="color: rgb(43, 109, 173);"> 
-						                    			<img class="chatbro_message_image" src_attr="//sun9-44.userapi.com/c627617/v627617513/652db/AcIEVaQuiqI.jpg?ava=1" width="32" height="32px" data-id="4301255" data-name="${element.name} ${element.surname}" src="../${element.user_img}" style="border-radius: 3px;">
-						                    		</a>
-						                    	</td> 
-						                    	<td class="chatbro_message_td_message" style="border-top: 1px solid rgb(34, 39, 42);">
-						                    		<div class="chatbro_message_wrapped">
-						                    			<div class="chatbro_message_auth_name" style="color: rgb(243, 243, 243);">
-						                    				<span class="chatbro_message_name" data-color=""> 
-						                    					<a class=" chatbro_message_name_color_5" style="color: rgb(43, 109, 173);">
-						                    						${element.name} ${element.surname}
-						                    					</a>
-						                    				</span>
-						                    				<span class="chatbro_message_info">    
-						                    					<div class="chatbro_message_date" style="color: rgb(177, 177, 177); visibility: visible; opacity: 1; text-align: right;"><?php echo date("Y-m-d").'<br>'.date("h:i:s"); ?>
-						                    					<div class="chatbro_message_actions" style="line-height: 15px; color: rgb(255, 255, 255); border-color: rgb(37, 42, 46); background-color: rgb(40, 46, 49); visibility: hidden; opacity: 0;">
-						                    					</div>
-						                    				</span>
-						                    			</div> 
-						                    			<div class="chatbro_message_text" style="color: rgb(221, 221, 221);">
-						                    				<div>${json.msg}</div>
-						                    				<div class="chatbro_message_attachments"></div>
-						                    			</div>
-						                    		</div>
-						                    	</td> 
-						                    	<td class="chatbro_message_empty_block"></td>
-						                    </tr>`);
+											$('.chat-room').append(`
+												<div class="message message-right">
+								                    <div class="avatar-wrapper avatar-small">
+								                        <img src="https://scontent-xsp1-1.xx.fbcdn.net/v/t1.0-9/s960x960/87853049_2481558942096235_8369025410146500608_o.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=0dU4W6nYBk0AX-ZHz-P&_nc_ht=scontent-xsp1-1.xx&_nc_tp=7&oh=20d12357dd09465c5ed2526555651580&oe=5EA2FF44" alt="avatar" />
+								                    </div>
+								                    <div class="bubble bubble-dark">
+								                        ${json.msg}
+								                    </div>
+								                </div>
+												
+
+
+						                    `);
 										})
 									break;
 						    	}
@@ -167,7 +392,7 @@
 						})
 				}
 				// Events
-				$('.chat_input').on('keyup',function(e){
+				$('#inputText').on('keyup',function(e){
 					if(e.keyCode == 13 && !e.shiftKey) {
 						var chat_msg = $(this).val();
 						websocket_server.send(
@@ -177,8 +402,6 @@
 								'chat_msg': chat_msg
 							})
 						);
-						let scrollCount = $('.chatbro_messages_wrapper')[0].scrollHeight;
-							$('.chatbro_messages_wrapper').stop().animate({scrollTop : scrollCount});
 						e.preventDefault();
 						$(this).val('');
 					}
