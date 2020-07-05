@@ -36,10 +36,10 @@
 					$response_from = "<span class='span_us_id' id=$user_id>".$chat_msg."</span>";
 					$response_to = "<span class='span_us_id' id=$user_id>".$chat_msg."</span>";
 					// Output
-					$from->send(json_encode(array("type"=>$type,"msg"=>$response_from)));
+					$from->send(json_encode(array("type"=>$type, "msg"=>$response_from)));
 					foreach ($this->clients as $client) {
-						if ($from!=$client) {
-							$client->send(json_encode(array("type"=>$type,"msg"=>$response_to)));
+						if ($from != $client) {
+							$client->send(json_encode(array("type"=>$type, "g"=>$response_to)));
 						}
 					}
 					break;

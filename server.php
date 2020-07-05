@@ -222,6 +222,18 @@
 		// 	echo(json_encode($online_chat_user));
 		// }
 
+		function chat_add_db(ConnectionInterface $data){
+			$data = json_decode($data);
+			$type = $data->type;
+			switch ($type) {
+				case 'chat_add_db':
+					$id = $data->user_id;
+					$text = $data->text;
+					$this->x->query("INSERT INTO online_chat(user_id,messenger) VALUES('$id','$text')");
+					break;
+			}
+		}
+
 	}
 	$s = new Siynup();
 ?>

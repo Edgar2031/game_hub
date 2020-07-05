@@ -86,9 +86,10 @@
 			    cursor: pointer;
 			}
 			.chat-box .chat-room {
-			    min-height: 300px;
+			    height: 300px;
 			    background-color: #f7f9fb;
 			    padding: 15px;
+			    overflow: auto;
 			}
 			.chat-box .chat-room .avatar-small {
 			    width: 25px;
@@ -226,14 +227,7 @@
 
                 <!-- chat -->
 
-               	<!-- <div class="message message-left">
-	                <div class="avatar-wrapper avatar-small">
-	                    <img src="https://znews-photo.zadn.vn/w660/Uploaded/pnbcuhbatgunb/2020_03_23/i13863960814_1.jpg" alt="avatar" />
-	                </div>
-	                <div class="bubble bubble-light">
-	                    what is going on?
-	                </div>
-            	</div> -->
+               	
 
             </div>
             <div class="type-area">
@@ -298,14 +292,12 @@
 
 					// ajax chati tvyalnere baza uxarkelu hamar 
 
-
-					// let user_id = 0;
-					// 	user_id = json.msg.split('=');
-					// 	user_id = user_id[2][0];
-					// 	user_id = Number(user_id)
-					// let text_l = json.msg.split('>');
-					// 	text_l = text_l[1].split('<');
-					// 	text_l = text_l[0];
+						let	user_id = json.msg.split('=');
+							user_id = user_id[2][0];
+							user_id = Number(user_id)
+						// let text = json.msg.split('>');
+						// 	text = text[1].split('<');
+						// 	text = text[0];
 						// $.ajax({
 						//     url: 'http://localhost/game_hub/server.php',
 						//     type: 'post',
@@ -317,19 +309,34 @@
 						// 				r.forEach(function(element, index){
 
 
-											$('.chat-room').append(`
-												<div class="message message-right">
-								                    <div class="avatar-wrapper avatar-small">
-								                        <img src="https://scontent-xsp1-1.xx.fbcdn.net/v/t1.0-9/s960x960/87853049_2481558942096235_8369025410146500608_o.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=0dU4W6nYBk0AX-ZHz-P&_nc_ht=scontent-xsp1-1.xx&_nc_tp=7&oh=20d12357dd09465c5ed2526555651580&oe=5EA2FF44" alt="avatar" />
-								                    </div>
-								                    <div class="bubble bubble-dark">
-								                        ${json.msg}
-								                    </div>
-								                </div>
-												
 
+						if (user_id == <?php echo $profil[0]["id"]; ?>) {
 
-						                    `);
+							$('.chat-room').append(`
+								<div class="message message-right">
+				                    <div class="avatar-wrapper avatar-small">
+				                        <img src="https://znews-photo.zadn.vn/w660/Uploaded/pnbcuhbatgunb/2020_03_23/i13863960814_1.jpg" alt="avatar" />
+				                    </div>
+				                    <div class="bubble bubble-dark">
+				                        ${json.msg}
+				                    </div>
+				                </div>
+		                    `);
+
+						} else {
+							
+							$('.chat-room').append(`
+								<div class="message message-left">
+					                <div class="avatar-wrapper avatar-small">
+					                    <img src="https://znews-photo.zadn.vn/w660/Uploaded/pnbcuhbatgunb/2020_03_23/i13863960814_1.jpg" alt="avatar" />
+					                </div>
+					                <div class="bubble bubble-light">
+					                     ${json.msg}
+					                </div>
+				            	</div>
+							`);
+						}
+
 
 
 
@@ -350,6 +357,8 @@
 								'chat_msg': chat_msg
 							})
 						);
+						let scrollCount = $('.chat-room')[0].scrollHeight;
+							$('.chat-room').stop().animate({scrollTop : scrollCount});
 						e.preventDefault();
 						$(this).val('');
 					}
