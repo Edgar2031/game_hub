@@ -322,6 +322,8 @@
 				                    </div>
 				                </div>
 		                    `);
+		                    let scrollCount = $('.chat-room')[0].scrollHeight;
+							$('.chat-room').stop().animate({scrollTop : scrollCount});
 
 						} else {
 							
@@ -335,6 +337,8 @@
 					                </div>
 				            	</div>
 							`);
+							let scrollCount = $('.chat-room')[0].scrollHeight;
+							$('.chat-room').stop().animate({scrollTop : scrollCount});
 						}
 
 
@@ -357,8 +361,6 @@
 								'chat_msg': chat_msg
 							})
 						);
-						let scrollCount = $('.chat-room')[0].scrollHeight;
-							$('.chat-room').stop().animate({scrollTop : scrollCount});
 						e.preventDefault();
 						$(this).val('');
 					}
